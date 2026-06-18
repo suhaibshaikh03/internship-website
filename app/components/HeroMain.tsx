@@ -77,73 +77,132 @@ export default function HeroMain() {
       <style jsx global>{`
         @keyframes heroFloatOne {
           0%, 100% { transform: translateY(0px); }
-          50%       { transform: translateY(-12px); }
+          50% { transform: translateY(-12px); }
         }
         @keyframes heroFloatTwo {
           0%, 100% { transform: translateY(-8px); }
-          50%       { transform: translateY(4px); }
+          50% { transform: translateY(4px); }
         }
         @keyframes heroFloatThree {
           0%, 100% { transform: translateY(4px); }
-          50%       { transform: translateY(-8px); }
+          50% { transform: translateY(-8px); }
         }
 
-        .hero-float-1 { animation: heroFloatOne   5s ease-in-out infinite; }
-        .hero-float-2 { animation: heroFloatTwo   6s ease-in-out infinite; }
+        .hero-float-1 { animation: heroFloatOne 5s ease-in-out infinite; }
+        .hero-float-2 { animation: heroFloatTwo 6s ease-in-out infinite; }
         .hero-float-3 { animation: heroFloatThree 5.5s ease-in-out infinite; }
 
-        @media (max-width: 768px) {
+        @media (max-width: 1024px) {
           .hero-main-section {
             flex-direction: column;
             height: auto;
-            overflow-y: auto;
+            overflow: visible;
           }
           .hero-left-panel {
             width: 100% !important;
-            height: 300px !important;
+            height: auto !important;
             flex-shrink: 0;
-            margin-bottom: 24px;
+            order: 2;
+            display: flex;
+            justify-content: center;
+            padding: 0 16px 0;
           }
           .hero-right-panel {
-            min-height: 300px;
-            padding: 0 16px;
+            width: 100% !important;
+            min-height: auto;
+            order: 1;
+            justify-content: center;
+            padding: 56px 20px 24px;
+          }
+          .hero-right-content {
+            width: 100%;
+            max-width: 420px;
+            padding: 0 !important;
+            text-align: center;
+          }
+          .hero-heading {
+            font-size: clamp(2.2rem, 9vw, 3.4rem) !important;
+          }
+          .hero-copy {
+            margin-top: 16px !important;
+            font-size: 15px !important;
+          }
+          .hero-cta {
+            margin-top: 24px !important;
+          }
+          .hero-visual {
+            position: relative !important;
+            width: 100% !important;
+            max-width: 420px;
+            aspect-ratio: 0.95;
+            min-height: 360px;
+            overflow: hidden;
+            border-radius: 20px;
+            background: #f5f5f5;
+          }
+          .hero-box {
+            padding: 10px 12px !important;
+            gap: 8px !important;
+          }
+          .hero-box-text {
+            font-size: 12px !important;
+          }
+          .hero-box-1 {
+            top: 10% !important;
+            right: 5% !important;
+            left: auto !important;
+          }
+          .hero-box-2 {
+            top: 28% !important;
+            left: 4% !important;
+            right: auto !important;
+          }
+          .hero-box-3 {
+            top: 56% !important;
+            left: 7% !important;
+            right: auto !important;
+          }
+          .hero-box-4 {
+            top: 74% !important;
+            right: 4% !important;
+            left: auto !important;
           }
         }
       `}</style>
 
-      {/* ── Left panel: creature image + floating label boxes ── */}
       <div className="relative w-[52%] h-full flex-shrink-0 hero-left-panel">
-        <Image
-          src="/91.png"
-          alt="Futuristic figure"
-          fill
-          className="object-cover object-center"
-          priority
-          sizes="52vw"
-        />
+        <div className="hero-visual relative w-full h-full">
+          <Image
+            src="/91.png"
+            alt="Futuristic figure"
+            fill
+            className="object-cover object-center"
+            priority
+            sizes="(max-width: 1024px) 100vw, 52vw"
+          />
 
-        {boxes.map((box) => (
-          <div
-            key={box.text}
-            className={`absolute flex items-center gap-2.5 bg-white/80 backdrop-blur-sm border border-white/50 shadow-md rounded-lg px-3.5 py-2.5 hero-box ${box.floatClass} ${box.className}`}
-            style={{ animationDelay: box.delay }}
-          >
-            <CheckBadge />
-            <span
-              className="text-[13px] text-[#111] whitespace-nowrap"
-              style={{ fontWeight: 400 }}
+          {boxes.map((box, index) => (
+            <div
+              key={box.text}
+              className={`absolute flex items-center gap-2.5 bg-white/80 backdrop-blur-sm border border-white/50 shadow-md rounded-lg px-3.5 py-2.5 hero-box hero-box-${index + 1} ${box.floatClass} ${box.className}`}
+              style={{ animationDelay: box.delay }}
             >
-              {box.text}
-            </span>
-          </div>
-        ))}
+              <CheckBadge />
+              <span
+                className="text-[13px] text-[#111] whitespace-nowrap hero-box-text"
+                style={{ fontWeight: 400 }}
+              >
+                {box.text}
+              </span>
+            </div>
+          ))}
+        </div>
       </div>
 
-      {/* ── Right panel: heading, subtitle, CTA ── */}
       <div className="flex-1 h-full flex items-center hero-right-panel">
-        <div className="pl-14 pr-10">
+        <div className="pl-14 pr-10 hero-right-content">
           <h1
-            className="text-[#0d0d0d] leading-[1.04] text-[clamp(2.6rem,5vw,4.2rem)]"
+            className="text-[#0d0d0d] leading-[1.04] text-[clamp(2.6rem,5vw,4.2rem)] hero-heading"
             style={{ fontWeight: 600 }}
           >
             Redefining the
@@ -153,15 +212,12 @@ export default function HeroMain() {
             3.0 education!
           </h1>
 
-          <p
-            className="mt-5 text-[#555] text-[15px]"
-            style={{ fontWeight: 400 }}
-          >
+          <p className="mt-5 text-[#555] text-[15px] hero-copy" style={{ fontWeight: 400 }}>
             Get worthwhile education from Industry Experts
           </p>
 
           <button
-            className="mt-8 px-12 py-2 bg-[#023035] text-white text-[14px] rounded-lg transition-colors duration-200 hover:bg-[#03484f]"
+            className="mt-8 px-12 py-2 bg-[#023035] text-white text-[14px] rounded-lg transition-colors duration-200 hover:bg-[#03484f] hero-cta"
             style={{ fontWeight: 500 }}
           >
             Sign up Now

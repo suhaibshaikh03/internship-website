@@ -24,7 +24,7 @@ export function ProgramCard({ mainImage, icon, badge, title, duration, bgColor, 
 
   return (
     <article
-      className={`${googleSansFlex.variable} relative flex w-[100vw] flex-col overflow-hidden rounded-[10px] ${bgColor} shadow-2xl transition-transform duration-300 ease-out hover:-translate-y-3 sm:w-[260px] lg:w-[330px] ${
+      className={`${googleSansFlex.variable} relative flex w-[calc(100vw-56px)] flex-col overflow-hidden rounded-[18px] ${bgColor} shadow-2xl transition-transform duration-300 ease-out hover:-translate-y-3 sm:w-[260px] sm:rounded-[10px] lg:w-[330px] ${
         isPeek
           ? "h-[450px] sm:h-[410px] lg:h-[500px]"
           : "h-[480px] sm:h-[440px] lg:h-[540px]"

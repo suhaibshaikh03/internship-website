@@ -35,7 +35,7 @@ export default function LaunchCTA() {
             flex-direction: column !important;
             align-items: center !important;
             justify-content: center !important;
-            padding: 80px 24px !important;
+            padding: 80px 24px 0 !important;
           }
           .launch-cta-left {
             position: relative !important;
@@ -58,8 +58,21 @@ export default function LaunchCTA() {
             margin-left: auto !important;
             margin-right: auto !important;
           }
+          .launch-cta-model {
+            position: relative !important;
+            width: 100% !important;
+            margin-top: 28px !important;
+            overflow: hidden !important;
+          }
           .launch-cta-iframe {
-            display: none !important;
+            display: block !important;
+            position: relative !important;
+            top: auto !important;
+            width: 100vw !important;
+            max-width: 100vw !important;
+            height: clamp(360px, 62vh, 520px) !important;
+            margin: 0 calc(50% - 50vw) !important;
+            transform: none !important;
           }
         }
 
@@ -120,21 +133,25 @@ export default function LaunchCTA() {
       </div>
 
       {/* ── Right: Spline iframe ── */}
-      <iframe
-        src="https://my.spline.design/chatgptkeyboard-syV7Xqh56oD99RW4rH8kTk7Z/"
-        title="3D Keyboard"
-        allow="autoplay; fullscreen"
-        className="launch-cta-iframe"
-        style={{
-          position: "relative",
-          top: 0,
-          width: "calc(100% + 230px)",
-          height: "100%",
-          border: "none",
-          zIndex: 1,
-          transform: "translateX(-30px)",
-        }}
-      />
+      <div className="launch-cta-model">
+        <iframe
+          src="https://my.spline.design/chatgptkeyboard-syV7Xqh56oD99RW4rH8kTk7Z/"
+          title="3D Keyboard"
+          allow="autoplay; fullscreen"
+          loading="eager"
+          className="launch-cta-iframe"
+          style={{
+            position: "relative",
+            top: 0,
+            width: "calc(100% + 230px)",
+            height: "100%",
+            minHeight: "520px",
+            border: "none",
+            zIndex: 1,
+            transform: "translateX(-30px)",
+          }}
+        />
+      </div>
 
       {/* ── We're online widget ── */}
       <div

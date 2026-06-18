@@ -103,7 +103,7 @@ export default function TopPrograms() {
             return (
             <div
               key={`${program.id}-${index}`}
-              className={`flex-shrink-0 ${isPeek ? "self-center" : ""}`}
+              className={`flex w-full flex-shrink-0 justify-center sm:w-auto ${isPeek ? "self-center" : ""}`}
             >
               <ProgramCard 
                 mainImage={program.mainImage}
