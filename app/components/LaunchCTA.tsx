@@ -24,7 +24,7 @@ export default function LaunchCTA() {
   return (
     <section
       className={`${googleSansFlex.variable} relative w-full bg-black overflow-x-hidden launch-cta-section`}
-      style={{ height: "130vh", fontFamily: "var(--font-gsf-launch), sans-serif" }}
+      style={{ height: "95vh", fontFamily: "var(--font-gsf-launch), sans-serif" }}
     >
       <style jsx global>{`
         @media (max-width: 768px) {
