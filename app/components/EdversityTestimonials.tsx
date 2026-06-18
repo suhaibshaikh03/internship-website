@@ -6,7 +6,7 @@ import localFont from "next/font/local";
 import { motion, useScroll, useTransform, MotionValue } from "framer-motion";
 
 const googleSansFlex = localFont({
-  src: [{ path: "../../public/Google_Sans_flex/static/GoogleSansFlex_36pt-SemiBold.ttf", weight: "600", style: "normal" }],
+  src: [{ path: "../../public/Google_Sans_Flex/static/GoogleSansFlex_36pt-SemiBold.ttf", weight: "600", style: "normal" }],
   variable: "--font-edversity-google-sans-flex",
 });
 

@@ -7,7 +7,7 @@ import localFont from "next/font/local";
 const googleSansFlex = localFont({
   src: [
     {
-      path: "../../public/Google_Sans_flex/GoogleSansFlex-VariableFont_GRAD,ROND,opsz,slnt,wdth,wght.ttf",
+      path: "../../public/Google_Sans_Flex/GoogleSansFlex-VariableFont_GRAD,ROND,opsz,slnt,wdth,wght.ttf",
       weight: "100 1000",
       style: "normal",
     },
