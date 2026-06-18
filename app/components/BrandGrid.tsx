@@ -2,49 +2,82 @@
 
 import Image from "next/image";
 
-export default function BrandGrid() {
-  const brands = [
-    // Row 1
-    { id: 1, src: "/11.svg", alt: "Ministry of IT", bg: "bg-[#121212]" },
-    { id: 2, src: "/12.svg", alt: "Google", bg: "bg-[#1C1C1C]" },
-    { id: 3, src: "/aws-vector.webp", alt: "AWS", bg: "bg-[#121212]" }, // Swapped to .png
-    // Row 2
-    { id: 4, src: "/14.png", alt: "Ignite", bg: "bg-[#1C1C1C]" },
-    { id: 5, src: "/15.png", alt: "Microsoft", bg: "bg-[#121212]" },
-    { id: 6, src: "/16.png", alt: "The Garage", bg: "bg-[#1C1C1C]" },
-  ];
+type Brand = {
+  id: number;
+  src: string;
+  alt: string;
+  bg: string;
+  width: number;
+  height: number;
+};
 
+const brands: Brand[] = [
+  { id: 1, src: "/11.svg", alt: "Ministry of IT", bg: "bg-[#121212]", width: 118, height: 28 },
+  { id: 2, src: "/12.svg", alt: "Google", bg: "bg-[#1C1C1C]", width: 78, height: 18 },
+  { id: 3, src: "/aws-vector.webp", alt: "AWS", bg: "bg-[#121212]", width: 52, height: 26 },
+  { id: 4, src: "/14.png", alt: "Ignite", bg: "bg-[#1C1C1C]", width: 72, height: 22 },
+  { id: 5, src: "/15.png", alt: "Microsoft", bg: "bg-[#121212]", width: 78, height: 16 },
+  { id: 6, src: "/16.png", alt: "The Garage", bg: "bg-[#1C1C1C]", width: 70, height: 28 },
+];
+
+function BrandTile({
+  brand,
+  className,
+}: {
+  brand: Brand;
+  className?: string;
+}) {
   return (
-    <section className="w-full bg-black select-none pb-16 overflow-hidden">
-      {/* Removed max-w-7xl to let the grid fully break out and cover 100% horizontal viewport width.
-        Internal grid borders separate the items smoothly without cropping edge-to-edge continuity.
-      */}
-      <div className="w-full grid grid-cols-2 md:grid-cols-3 border-t border-zinc-900/60">
-        {brands.map((brand, index) => {
-          const isMobileRowEnd = (index + 1) % 2 === 0;
-          const isDesktopRowEnd = (index + 1) % 3 === 0;
+    <div
+      className={`${brand.bg} flex items-center justify-center overflow-hidden border-zinc-900 transition-colors duration-300 hover:brightness-110 ${className ?? ""}`}
+    >
+      <div className="flex h-full w-full items-center justify-center px-4">
+        <Image
+          src={brand.src}
+          alt={brand.alt}
+          width={brand.width}
+          height={brand.height}
+          sizes="(max-width: 767px) 90px, (max-width: 1023px) 130px, 180px"
+          className="block h-auto max-h-[32px] w-auto max-w-[118px] object-contain md:max-h-[40px] md:max-w-[150px] xl:max-h-[48px] xl:max-w-[180px]"
+        />
+      </div>
+    </div>
+  );
+}
 
-          return (
-          <div
-            key={brand.id}
-            className={`${brand.bg} aspect-[16/6.5] min-h-[120px] sm:min-h-[140px] md:min-h-[175px] flex items-center justify-center p-6 sm:p-8 overflow-hidden transition-colors duration-300 hover:brightness-110 border-b border-zinc-900 ${
-              isMobileRowEnd ? "border-r-0" : "border-r"
-            } ${
-              isDesktopRowEnd ? "md:border-r-0" : "md:border-r"
-            }`}
-          >
-            <div className="relative overflow-hidden w-full h-full max-w-[clamp(80px,18vw,195px)] max-h-[clamp(30px,6vw,60px)] flex items-center justify-center opacity-85 hover:opacity-100 transition-opacity duration-200">
-              <Image
-                src={brand.src}
-                alt={brand.alt}
-                fill
-                sizes="(max-width: 640px) 120px, (max-width: 768px) 150px, 195px"
-                className="object-contain"
+export default function BrandGrid() {
+  return (
+    <section className="w-full select-none overflow-hidden bg-black pb-16">
+      <div className="mx-auto block w-full md:hidden">
+        <div className="grid grid-cols-2 grid-rows-3 border-t border-zinc-900/60">
+          {brands.map((brand, index) => {
+            const isRowEnd = (index + 1) % 2 === 0;
+
+            return (
+              <BrandTile
+                key={brand.id}
+                brand={brand}
+                className={`h-[92px] border-b ${isRowEnd ? "border-r-0" : "border-r"}`}
               />
-            </div>
-          </div>
-          );
-        })}
+            );
+          })}
+        </div>
+      </div>
+
+      <div className="mx-auto hidden w-full md:block">
+        <div className="grid grid-cols-3 border-t border-zinc-900/60">
+          {brands.map((brand, index) => {
+            const isColEnd = (index + 1) % 3 === 0;
+
+            return (
+              <BrandTile
+                key={brand.id}
+                brand={brand}
+                className={`min-h-[150px] border-b p-6 lg:min-h-[175px] ${isColEnd ? "border-r-0" : "border-r"}`}
+              />
+            );
+          })}
+        </div>
       </div>
     </section>
   );
