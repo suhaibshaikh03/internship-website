@@ -116,45 +116,51 @@ function TestimonialGlassCard({ testimonial }: { testimonial: FloatingTestimonia
   const isCompact = testimonial.variant === "compact";
 
   return (
-    <article
-      className={`flex w-full items-start border border-white/75 bg-white/70 text-black shadow-[0_18px_55px_rgba(73,101,138,0.22)] backdrop-blur-xl ${
-        isCompact
-          ? "gap-2.5 rounded-[12px] px-3.5 py-3"
-          : "gap-4 rounded-[18px] px-5 py-4"
-      }`}
-      style={{ fontFamily: "var(--font-edversity-google-sans-flex), sans-serif" }}
-    >
+    <div className="relative">
       <div
-        className={`relative flex-shrink-0 overflow-hidden rounded-full bg-[#e8eff7] ${
-          isCompact ? "h-8 w-8" : "h-12 w-12"
+        className="absolute -inset-5 rounded-[26px] bg-[#8fc8ff]/35 blur-2xl"
+        aria-hidden
+      />
+      <article
+        className={`relative flex w-full items-start border border-white/75 bg-white/70 text-black shadow-[0_22px_70px_rgba(70,143,222,0.34)] backdrop-blur-xl ${
+          isCompact
+            ? "gap-2.5 rounded-[12px] px-3.5 py-3"
+            : "gap-4 rounded-[18px] px-5 py-4"
         }`}
+        style={{ fontFamily: "var(--font-edversity-google-sans-flex), sans-serif" }}
       >
-        <Image
-          src={testimonial.avatarSrc}
-          alt={`${testimonial.author} avatar`}
-          fill
-          sizes={isCompact ? "32px" : "48px"}
-          className="object-cover"
-          quality={100}
-        />
-      </div>
-
-      <div className="min-w-0 flex-1">
-        <p
-          className={`font-medium leading-snug text-[#1b1f25] ${
-            isCompact ? "text-[10px]" : "text-[14px]"
+        <div
+          className={`relative flex-shrink-0 overflow-hidden rounded-full bg-[#e8eff7] ${
+            isCompact ? "h-8 w-8" : "h-12 w-12"
           }`}
         >
-          {testimonial.quote}
-        </p>
-        <div className={`h-px bg-black/5 ${isCompact ? "my-1.5" : "my-3"}`} />
-        <p className={`leading-none ${isCompact ? "text-[7px]" : "text-[10px]"}`}>
-          <span className="font-black text-[#252a31]">{testimonial.author}</span>
-          <span className="mx-1 text-black/35">|</span>
-          <span className="font-medium text-[#7c848f]">{testimonial.role}</span>
-        </p>
-      </div>
-    </article>
+          <Image
+            src={testimonial.avatarSrc}
+            alt={`${testimonial.author} avatar`}
+            fill
+            sizes={isCompact ? "32px" : "48px"}
+            className="object-cover"
+            quality={100}
+          />
+        </div>
+
+        <div className="min-w-0 flex-1">
+          <p
+            className={`font-medium leading-snug text-[#1b1f25] ${
+              isCompact ? "text-[10px]" : "text-[14px]"
+            }`}
+          >
+            {testimonial.quote}
+          </p>
+          <div className={`h-px bg-black/5 ${isCompact ? "my-1.5" : "my-3"}`} />
+          <p className={`leading-none ${isCompact ? "text-[7px]" : "text-[10px]"}`}>
+            <span className="font-black text-[#252a31]">{testimonial.author}</span>
+            <span className="mx-1 text-black/35">|</span>
+            <span className="font-medium text-[#7c848f]">{testimonial.role}</span>
+          </p>
+        </div>
+      </article>
+    </div>
   );
 }
 

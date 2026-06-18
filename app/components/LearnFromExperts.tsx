@@ -85,7 +85,7 @@ function ExpertCard({
       className={`relative flex-shrink-0 overflow-hidden outline-none ring-1 ring-white/5 transition-[width,filter,opacity] duration-500 ease-out ${
         isActive
           ? "h-[340px] sm:h-[420px] lg:h-[520px] w-[56vw] sm:w-[340px] lg:w-[450px] rounded-[14px] opacity-100"
-          : "h-[340px] sm:h-[420px] lg:h-[520px] w-[26vw] sm:w-[160px] lg:w-[220px] rounded-[10px] opacity-75 hover:opacity-95"
+          : "h-[340px] sm:h-[420px] lg:h-[520px] w-[26vw] sm:w-[160px] lg:w-[220px] rounded-[10px] opacity-100"
       }`}
     >
       <div className="absolute -inset-5">
@@ -101,7 +101,6 @@ function ExpertCard({
         />
       </div>
       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/12 to-transparent" />
-      {!isActive && <div className="absolute inset-0 bg-[#0b2d3f]/35" />}
 
       <div className={`absolute inset-x-0 bottom-0 p-8 text-white transition-opacity duration-300 ${isActive ? "opacity-100" : "opacity-0"}`}>
         <div className="max-w-[280px]">

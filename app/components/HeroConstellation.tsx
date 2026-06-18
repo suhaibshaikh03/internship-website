@@ -59,16 +59,41 @@ export default function HeroConstellation() {
         .float-anim-1 { animation: slowFloatOne 5s ease-in-out infinite; }
         .float-anim-2 { animation: slowFloatTwo 6s ease-in-out infinite; }
         .float-anim-3 { animation: slowFloatThree 5.5s ease-in-out infinite; }
+
+        .hero-node {
+          position: absolute;
+          translate: -50% -50%;
+        }
+
+        .hero-node-man { top: calc(14% - 50px); left: calc(20% - 100px); }
+        .hero-node-tesla { top: 31%; left: calc(14% - 170px); }
+        .hero-node-woman-left { top: 62%; left: calc(18% - 70px); }
+        .hero-node-google { top: 84%; left: 36%; }
+        .hero-node-nvidia { top: calc(25% - 94px); left: calc(74% - 18px); }
+        .hero-node-woman-right { top: calc(14% - 100px); left: calc(82% + 150px); }
+        .hero-node-apple { top: 52%; left: calc(88% + 150px); }
+        .hero-node-solana { top: 75%; left: calc(73% + 100px); }
+
+        @media (max-width: 639px) {
+          .hero-node-man { top: 8%; left: 23%; }
+          .hero-node-tesla { top: 25%; left: 5%; }
+          .hero-node-woman-left { top: 80%; left: 10%; }
+          .hero-node-google { top: 102%; left: 32%; }
+          .hero-node-nvidia { top: 22%; left: 77%; }
+          .hero-node-woman-right { top: 8%; left: 88%; }
+          .hero-node-apple { top: 50%; left: 95%; }
+          .hero-node-solana { top: 90%; left: 78%; }
+        }
       `}</style>
 
       {/* Main Grid Graphic Frame Layout - Fixed max-h to prevent massive empty vertical space */}
-      <div className="relative w-full max-w-5xl aspect-[4/3] sm:aspect-[16/9] max-h-[680px] flex items-center justify-center">
+      <div className="relative w-full max-w-5xl aspect-[4/3] sm:aspect-[16/9] max-h-[760px] flex items-center justify-center">
         
         {/* =========================================================================
             CENTERPIECE BACKGROUND PROFILE LUNA GLOW
            ========================================================================= */}
         <div 
-          className={`relative w-[380px] h-[380px] sm:w-[480px] sm:h-[480px] md:w-[580px] md:h-[580px] z-10 flex items-center justify-center transition-all duration-1000 ease-out delay-100 ${
+          className={`relative w-[380px] h-[380px] sm:w-[540px] sm:h-[540px] md:w-[650px] md:h-[650px] z-10 flex items-center justify-center transition-all duration-1000 ease-out delay-100 ${
             isVisible ? "opacity-100 scale-100" : "opacity-0 scale-90"
           }`}
           style={{ containerType: "inline-size" }}
@@ -86,7 +111,7 @@ export default function HeroConstellation() {
               alt="Ecosystem Silhouette Frame"
               fill
               priority
-              sizes="(max-width: 768px) 380px, 580px"
+              sizes="(max-width: 640px) 380px, (max-width: 768px) 540px, 650px"
               className="object-cover"
             />
           </div>
@@ -117,16 +142,16 @@ export default function HeroConstellation() {
 
         {/* 1. Curly Hair Man Avatar */}
         <div 
-          className={`absolute top-[8%] left-[23%] z-20 float-anim-1 transition-all duration-1000 ease-out delay-300 ${
+          className={`hero-node hero-node-man z-20 float-anim-1 transition-all duration-1000 ease-out delay-300 ${
             isVisible ? "opacity-100 scale-100" : "opacity-0 scale-75"
           }`}
         >
-          <div className="w-16 h-16 md:w-[100px] md:h-[100px] rounded-full overflow-hidden border border-zinc-700 shadow-2xl relative">
+          <div className="w-16 h-16 sm:w-[74px] sm:h-[74px] md:w-[116px] md:h-[116px] rounded-full overflow-hidden border border-zinc-700 shadow-2xl relative">
             <Image
               src="/nav1.png"
               alt="Team Member"
               fill
-              sizes="(max-width: 768px) 64px, 100px"
+              sizes="(max-width: 768px) 74px, 116px"
               className="object-cover"
             />
           </div>
@@ -134,11 +159,11 @@ export default function HeroConstellation() {
 
         {/* 2. Tesla Dynamic Brand Badge */}
         <div 
-          className={`absolute top-[25%] left-[5%] z-20 float-anim-2 transition-all duration-1000 ease-out delay-400 ${
+          className={`hero-node hero-node-tesla z-20 float-anim-2 transition-all duration-1000 ease-out delay-400 ${
             isVisible ? "opacity-100 scale-100" : "opacity-0 scale-75"
           }`}
         >
-          <div className="w-16 h-16 md:w-[90px] md:h-[90px] rounded-full border border-white/30 shadow-2xl bg-white/10 backdrop-blur-md flex items-center justify-center relative">
+          <div className="w-16 h-16 sm:w-[74px] sm:h-[74px] md:w-[104px] md:h-[104px] rounded-full border border-white/30 shadow-2xl bg-white/10 backdrop-blur-md flex items-center justify-center relative">
             <div className="relative w-[55%] h-[55%]">
               <Image
                 src="/2.png"
@@ -153,16 +178,16 @@ export default function HeroConstellation() {
 
         {/* 3. Curly Hair Woman Avatar */}
         <div 
-          className={`absolute bottom-[20%] left-[10%] z-20 float-anim-3 transition-all duration-1000 ease-out delay-500 ${
+          className={`hero-node hero-node-woman-left z-20 float-anim-3 transition-all duration-1000 ease-out delay-500 ${
             isVisible ? "opacity-100 scale-100" : "opacity-0 scale-75"
           }`}
         >
-          <div className="w-16 h-16 md:w-[95px] md:h-[95px] rounded-full overflow-hidden border border-zinc-700 shadow-2xl relative filter brightness-105">
+          <div className="w-16 h-16 sm:w-[74px] sm:h-[74px] md:w-[110px] md:h-[110px] rounded-full overflow-hidden border border-zinc-700 shadow-2xl relative filter brightness-105">
             <Image
               src="/3.png"
               alt="Network Contributor"
               fill
-              sizes="(max-width: 768px) 64px, 95px"
+              sizes="(max-width: 768px) 74px, 110px"
               className="object-cover" 
             />
           </div>
@@ -170,11 +195,11 @@ export default function HeroConstellation() {
 
         {/* 4. Layered Google Brand Module */}
         <div 
-          className={`absolute -bottom-[2%] left-[32%] z-30 float-anim-1 transition-all duration-1000 ease-out delay-600 ${
+          className={`hero-node hero-node-google z-30 float-anim-1 transition-all duration-1000 ease-out delay-600 ${
             isVisible ? "opacity-100 scale-100" : "opacity-0 scale-75"
           }`}
         >
-          <div className="w-14 h-14 md:w-[74px] md:h-[74px] rounded-full border border-white/30 shadow-2xl bg-white/10 backdrop-blur-md flex items-center justify-center relative">
+          <div className="w-14 h-14 sm:w-[66px] sm:h-[66px] md:w-[86px] md:h-[86px] rounded-full border border-white/30 shadow-2xl bg-white/10 backdrop-blur-md flex items-center justify-center relative">
             <div className="absolute w-[55%] h-[55%] flex items-center justify-center">
               <Image src="/4b.png" alt="Google Identity Asset" fill sizes="40px" className="object-contain" />
             </div>
@@ -187,12 +212,12 @@ export default function HeroConstellation() {
 
         {/* 8. Layered Nvidia Brand Module */}
         <div
-          className={`absolute top-[22%] right-[23%] z-30 float-anim-2 transition-all duration-1000 ease-out delay-350 ${
+          className={`hero-node hero-node-nvidia z-30 float-anim-2 transition-all duration-1000 ease-out delay-350 ${
             isVisible ? "opacity-100 scale-100" : "opacity-0 scale-75"
           }`}
         >
           <div
-            className="w-14 h-14 md:w-[66px] md:h-[66px] rounded-full border border-white/15 shadow-2xl flex items-center justify-center relative overflow-hidden"
+            className="w-14 h-14 sm:w-[66px] sm:h-[66px] md:w-[78px] md:h-[78px] rounded-full border border-white/15 shadow-2xl flex items-center justify-center relative overflow-hidden"
             style={{
               background: "radial-gradient(circle at 38% 34%, rgba(52,58,70,0.96), rgba(20,22,29,0.96) 62%, rgba(11,12,17,0.98))",
               backdropFilter: "blur(14px)",
@@ -214,16 +239,16 @@ export default function HeroConstellation() {
 
         {/* 7. Professional Woman Profile Avatar */}
         <div 
-          className={`absolute top-[8%] right-[12%] z-20 float-anim-3 transition-all duration-1000 ease-out delay-450 ${
+          className={`hero-node hero-node-woman-right z-20 float-anim-3 transition-all duration-1000 ease-out delay-450 ${
             isVisible ? "opacity-100 scale-100" : "opacity-0 scale-75"
           }`}
         >
-          <div className="w-14 h-14 md:w-20 md:h-20 rounded-full overflow-hidden border border-zinc-700 shadow-2xl relative">
+          <div className="w-14 h-14 sm:w-[66px] sm:h-[66px] md:w-[94px] md:h-[94px] rounded-full overflow-hidden border border-zinc-700 shadow-2xl relative">
             <Image
               src="/nav2.png"
               alt="Community Mentor Profile"
               fill
-              sizes="(max-width: 768px) 56px, 80px"
+              sizes="(max-width: 768px) 66px, 94px"
               className="object-cover"
             />
           </div>
@@ -231,11 +256,11 @@ export default function HeroConstellation() {
 
         {/* 6. Layered Apple Corporation Node */}
         <div 
-          className={`absolute top-[50%] -translate-y-1/2 right-[5%] z-30 float-anim-1 transition-all duration-1000 ease-out delay-550 ${
+          className={`hero-node hero-node-apple z-30 float-anim-1 transition-all duration-1000 ease-out delay-550 ${
             isVisible ? "opacity-100 scale-100" : "opacity-0 scale-75"
           }`}
         >
-          <div className="w-14 h-14 md:w-[74px] md:h-[74px] rounded-full border border-white/30 shadow-2xl bg-white/10 backdrop-blur-md flex items-center justify-center relative">
+          <div className="w-14 h-14 sm:w-[66px] sm:h-[66px] md:w-[86px] md:h-[86px] rounded-full border border-white/30 shadow-2xl bg-white/10 backdrop-blur-md flex items-center justify-center relative">
             <div className="absolute w-[55%] h-[55%] flex items-center justify-center">
               <Image src="/6b.png" alt="Apple Logo Vector" fill sizes="40px" className="object-contain" />
             </div>
@@ -244,11 +269,11 @@ export default function HeroConstellation() {
 
         {/* 5. Layered Solana Ecosystem Node */}
         <div 
-          className={`absolute bottom-[10%] right-[22%] z-30 float-anim-2 transition-all duration-1000 ease-out delay-650 ${
+          className={`hero-node hero-node-solana z-30 float-anim-2 transition-all duration-1000 ease-out delay-650 ${
             isVisible ? "opacity-100 scale-100" : "opacity-0 scale-75"
           }`}
         >
-          <div className="w-14 h-14 md:w-[74px] md:h-[74px] rounded-full border border-white/30 shadow-2xl bg-white/10 backdrop-blur-md flex items-center justify-center relative">
+          <div className="w-14 h-14 sm:w-[66px] sm:h-[66px] md:w-[86px] md:h-[86px] rounded-full border border-white/30 shadow-2xl bg-white/10 backdrop-blur-md flex items-center justify-center relative">
             <div className="absolute w-[55%] h-[55%] flex items-center justify-center">
               <Image src="/5b.png" alt="Solana Brand Identity Vector" fill sizes="40px" className="object-contain" />
             </div>

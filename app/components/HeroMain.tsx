@@ -20,28 +20,33 @@ const googleSansFlex = localFont({
   variable: "--font-gsf-hero",
 });
 
-const boxes: { text: string; style: React.CSSProperties; floatClass: string; delay: string }[] = [
+const boxes: {
+  text: string;
+  className: string;
+  floatClass: string;
+  delay: string;
+}[] = [
   {
     text: "Tailored Learning",
-    style: { top: "23%", left: "64%" },
+    className: "top-[17%] right-[8%]",
     floatClass: "hero-float-1",
     delay: "0s",
   },
   {
     text: "Industry-Aligned Curriculum",
-    style: { top: "36%", left: "4%" },
+    className: "top-[28%] left-[5%]",
     floatClass: "hero-float-2",
     delay: "1s",
   },
   {
     text: "Expert Guidance",
-    style: { top: "67%", left: "15%" },
+    className: "top-[62%] left-[16%]",
     floatClass: "hero-float-3",
     delay: "0.5s",
   },
   {
     text: "Career Acceleration",
-    style: { top: "77%", left: "64%" },
+    className: "top-[70%] right-[8%]",
     floatClass: "hero-float-1",
     delay: "1.5s",
   },
@@ -120,8 +125,8 @@ export default function HeroMain() {
         {boxes.map((box) => (
           <div
             key={box.text}
-            className={`absolute flex items-center gap-2.5 bg-white/80 backdrop-blur-sm border border-white/50 shadow-md rounded-lg px-3.5 py-2.5 hero-box ${box.floatClass}`}
-            style={{ ...box.style, animationDelay: box.delay }}
+            className={`absolute flex items-center gap-2.5 bg-white/80 backdrop-blur-sm border border-white/50 shadow-md rounded-lg px-3.5 py-2.5 hero-box ${box.floatClass} ${box.className}`}
+            style={{ animationDelay: box.delay }}
           >
             <CheckBadge />
             <span
