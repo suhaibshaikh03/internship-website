@@ -186,13 +186,27 @@ export default function HeroConstellation() {
            ========================================================================= */}
 
         {/* 8. Layered Nvidia Brand Module */}
-        <div 
-          className={`absolute top-[18%] right-[25%] z-30 float-anim-2 transition-all duration-1000 ease-out delay-350 ${
+        <div
+          className={`absolute top-[18%] right-[32%] z-30 float-anim-2 transition-all duration-1000 ease-out delay-350 ${
             isVisible ? "opacity-100 scale-100" : "opacity-0 scale-75"
           }`}
         >
-          <div className="w-14 h-14 md:w-[70px] md:h-[70px] rounded-full border border-white/30 shadow-2xl bg-white/10 backdrop-blur-md flex items-center justify-center relative">
-            <div className="absolute w-[55%] h-[55%] flex items-center justify-center">
+          <div
+            className="w-14 h-14 md:w-[70px] md:h-[70px] rounded-full border border-white/25 shadow-2xl flex items-center justify-center relative overflow-hidden"
+            style={{
+              background: "radial-gradient(circle at 30% 30%, rgba(56,180,255,0.22), rgba(8,10,18,0.82))",
+              backdropFilter: "blur(14px)",
+              boxShadow: "0 0 22px rgba(56,180,255,0.18), inset 0 1px 0 rgba(255,255,255,0.18)",
+            }}
+          >
+            {/* Blue-light reflection highlight */}
+            <div
+              className="absolute inset-0 rounded-full pointer-events-none"
+              style={{
+                background: "radial-gradient(circle at 28% 25%, rgba(56,180,255,0.38), transparent 58%)",
+              }}
+            />
+            <div className="relative z-10 w-[55%] h-[55%] flex items-center justify-center">
               <Image src="/8b.png" alt="Nvidia Logo Asset" fill sizes="38px" className="object-contain" />
             </div>
           </div>
