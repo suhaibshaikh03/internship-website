@@ -9,9 +9,13 @@ const googleSansFlex = localFont({
   variable: "--font-google-sans-flex",
 });
 
+const indicatorButtons = [-2, -1, 0, 1, 2];
+const indicatorSlotStep = 34;
+
 export default function TopPrograms() {
   const [activeIndex, setActiveIndex] = React.useState(0);
   const [shouldAnimate, setShouldAnimate] = React.useState(true);
+  const [indicatorPosition, setIndicatorPosition] = React.useState(2);
 
   const programData = [
     { 
@@ -47,9 +51,10 @@ export default function TopPrograms() {
 
   React.useEffect(() => {
     const intervalId = window.setInterval(() => {
+      setIndicatorPosition((currentPosition) => (currentPosition + 1) % indicatorButtons.length);
       setShouldAnimate(true);
       setActiveIndex((currentIndex) => currentIndex + 1);
-    }, 2000);
+    }, 1000);
 
     return () => window.clearInterval(intervalId);
   }, []);
@@ -61,14 +66,17 @@ export default function TopPrograms() {
     }
   };
 
-  const indicatorButtons = [-2, -1, 0, 1, 2];
-
-  const moveSlides = (offset: number) => {
+  const moveSlides = (targetPosition: number) => {
+    const offset = targetPosition - indicatorPosition;
     if (offset === 0) return;
+
+    setIndicatorPosition(targetPosition);
     setShouldAnimate(true);
     setActiveIndex((currentIndex) => {
       const nextIndex = currentIndex + offset;
-      return nextIndex < 0 ? programData.length - 1 : nextIndex;
+      return nextIndex < 0
+        ? (nextIndex + programData.length) % programData.length
+        : nextIndex;
     });
   };
 
@@ -112,27 +120,33 @@ export default function TopPrograms() {
         </div>
       </div>
 
-      <div className="mt-4 flex items-center justify-center gap-1.5">
-        {indicatorButtons.map((offset) => {
-          const isActive = offset === 0;
-          const opacityClass = isActive
-            ? "opacity-100"
-            : Math.abs(offset) === 1
-              ? "opacity-50"
-              : "opacity-30";
-
-          return (
-          <button
-            key={offset}
-            type="button"
-            aria-label={offset < 0 ? "Previous program slide" : offset > 0 ? "Next program slide" : "Current program slide"}
-            onClick={() => moveSlides(offset)}
-            className={`h-[6px] rounded-full bg-white transition-[opacity,width] duration-200 ${
-              isActive ? "w-[24px]" : "w-[12px]"
-            } ${opacityClass}`}
+      <div
+        className="mt-4 flex items-center justify-center"
+      >
+        <div className="relative flex items-center justify-center gap-4">
+          <span
+            className="pointer-events-none absolute left-0 top-0 h-[9px] w-[36px] rounded-full bg-white transition-transform duration-500 ease-in-out"
+            style={{ transform: `translateX(${indicatorPosition * indicatorSlotStep - 9}px)` }}
           />
-          );
-        })}
+          {indicatorButtons.map((offset) => {
+            const buttonPosition = offset + 2;
+            const opacityClass = buttonPosition === indicatorPosition
+              ? "opacity-0"
+              : Math.abs(buttonPosition - indicatorPosition) === 1
+                ? "opacity-50"
+                : "opacity-30";
+
+            return (
+            <button
+              key={offset}
+              type="button"
+              aria-label={offset < 0 ? "Previous program slide" : offset > 0 ? "Next program slide" : "Current program slide"}
+              onClick={() => moveSlides(buttonPosition)}
+              className={`relative z-10 h-[9px] w-[18px] cursor-pointer rounded-full bg-white transition-opacity duration-500 ${opacityClass}`}
+            />
+            );
+          })}
+        </div>
       </div>
     </section>
   );

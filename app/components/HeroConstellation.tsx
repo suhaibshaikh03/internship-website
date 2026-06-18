@@ -40,7 +40,7 @@ export default function HeroConstellation() {
   return (
     <main 
       ref={sectionRef}
-      className={`${googleSansFlex.variable} w-full bg-black text-white flex flex-col items-center justify-center relative overflow-hidden select-none px-4 pt-20 pb-4`}
+      className={`${googleSansFlex.variable} w-full bg-black text-white flex flex-col items-center justify-center relative overflow-hidden select-none px-2 pt-20 pb-10 sm:px-4 sm:pb-4`}
     >
       <style jsx global>{`
         @keyframes slowFloatOne {
@@ -76,18 +76,18 @@ export default function HeroConstellation() {
 
         @media (max-width: 639px) {
           .hero-node-man { top: 8%; left: 23%; }
-          .hero-node-tesla { top: 25%; left: 5%; }
-          .hero-node-woman-left { top: 80%; left: 10%; }
-          .hero-node-google { top: 102%; left: 32%; }
+          .hero-node-tesla { top: 25%; left: 12%; }
+          .hero-node-woman-left { top: 80%; left: 15%; }
+          .hero-node-google { top: 94%; left: 36%; }
           .hero-node-nvidia { top: 22%; left: 77%; }
           .hero-node-woman-right { top: 8%; left: 88%; }
-          .hero-node-apple { top: 50%; left: 95%; }
+          .hero-node-apple { top: 50%; left: 88%; }
           .hero-node-solana { top: 90%; left: 78%; }
         }
       `}</style>
 
       {/* Main Grid Graphic Frame Layout - Fixed max-h to prevent massive empty vertical space */}
-      <div className="relative w-full max-w-5xl aspect-[4/3] sm:aspect-[16/9] max-h-[760px] flex items-center justify-center">
+      <div className="relative w-full max-w-5xl aspect-[4/3] max-h-[760px] flex items-center justify-center sm:aspect-[16/9]">
         
         {/* =========================================================================
             CENTERPIECE BACKGROUND PROFILE LUNA GLOW
@@ -157,17 +157,17 @@ export default function HeroConstellation() {
           </div>
         </div>
 
-        {/* 2. Tesla Dynamic Brand Badge */}
+        {/* 2. Tesla Transparent Brand Badge */}
         <div 
           className={`hero-node hero-node-tesla z-20 float-anim-2 transition-all duration-1000 ease-out delay-400 ${
             isVisible ? "opacity-100 scale-100" : "opacity-0 scale-75"
           }`}
         >
-          <div className="w-16 h-16 sm:w-[74px] sm:h-[74px] md:w-[104px] md:h-[104px] rounded-full border border-white/30 shadow-2xl bg-white/10 backdrop-blur-md flex items-center justify-center relative">
-            <div className="relative w-[55%] h-[55%]">
+          <div className="relative flex h-16 w-16 items-center justify-center rounded-full border border-white/20 bg-white/5 shadow-[0_18px_45px_rgba(0,0,0,0.45),inset_0_1px_0_rgba(255,255,255,0.14)] backdrop-blur-md sm:h-[74px] sm:w-[74px] md:h-[104px] md:w-[104px]">
+            <div className="relative h-[52%] w-[52%]">
               <Image
-                src="/2.png"
-                alt="Tesla Brand Anchor"
+                src="/tesla-icon 1.png"
+                alt="Tesla logo"
                 fill
                 sizes="40px"
                 className="object-contain"

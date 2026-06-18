@@ -29,7 +29,7 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`${googleSansFlex.variable} w-full bg-black text-white select-none`}
+      className={`${googleSansFlex.variable} relative z-50 w-full bg-black text-white select-none`}
       style={{ fontFamily: "var(--font-google-sans-flex), sans-serif" }}
     >
       {/* ── Desktop layout ── */}
@@ -91,15 +91,15 @@ export default function Navbar() {
 
       {/* ── Mobile menu ── */}
       {open && (
-        <div className="flex md:hidden flex-col bg-black border-t border-white/10 px-6 pb-8 pt-4">
+        <div className="absolute left-3 right-3 top-full z-50 flex md:hidden flex-col items-end rounded-b-2xl border border-t-0 border-white/12 bg-black/90 px-6 pb-7 pt-5 text-right shadow-[0_22px_60px_rgba(0,0,0,0.65)] backdrop-blur-md">
           {/* Nav links */}
-          <div className="flex flex-col gap-5 mb-auto">
+          <div className="flex w-[96px] flex-col items-start gap-1.5 mb-auto text-left">
             {navLinks.map(link => (
               <Link
                 key={link.href + link.label}
                 href={link.href}
                 onClick={() => setOpen(false)}
-                className={`${link.color} text-[18px] font-normal tracking-wide hover:opacity-80 transition-opacity`}
+                className={`${link.color} w-full rounded-md px-2 py-2 text-left text-[16px] font-normal tracking-wide transition-colors hover:bg-white/8 hover:text-white`}
               >
                 {link.label}
               </Link>
@@ -107,7 +107,7 @@ export default function Navbar() {
           </div>
 
           {/* Innovate 4.0 logo at bottom */}
-          <div className="mt-10">
+          <div className="mt-6 flex w-[96px] justify-start border-t border-white/10 px-2 pt-5">
             <Image src="/Vector.svg" alt="Innovate 4.0" width={110} height={28} style={{ height: "auto" }} className="object-contain" />
           </div>
         </div>

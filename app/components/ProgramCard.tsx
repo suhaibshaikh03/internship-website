@@ -24,10 +24,10 @@ export function ProgramCard({ mainImage, icon, badge, title, duration, bgColor, 
 
   return (
     <article
-      className={`${googleSansFlex.variable} flex w-[100vw] flex-col overflow-hidden rounded-[10px] ${bgColor} shadow-2xl transition-[height,opacity,transform] duration-300 ease-out hover:-translate-y-3 sm:w-[260px] lg:w-[330px] ${
+      className={`${googleSansFlex.variable} relative flex w-[100vw] flex-col overflow-hidden rounded-[10px] ${bgColor} shadow-2xl transition-transform duration-300 ease-out hover:-translate-y-3 sm:w-[260px] lg:w-[330px] ${
         isPeek
-          ? "h-[450px] opacity-45 sm:h-[410px] lg:h-[500px]"
-          : "h-[480px] opacity-100 sm:h-[440px] lg:h-[540px]"
+          ? "h-[450px] sm:h-[410px] lg:h-[500px]"
+          : "h-[480px] sm:h-[440px] lg:h-[540px]"
       }`}
       style={{ fontFamily: "var(--font-google-sans-flex), sans-serif" }}
     >
@@ -66,6 +66,13 @@ export function ProgramCard({ mainImage, icon, badge, title, duration, bgColor, 
           </button>
         </div>
       </div>
+
+      {isPeek && (
+        <div
+          className="pointer-events-none absolute inset-0 z-20 bg-black/55"
+          aria-hidden
+        />
+      )}
     </article>
   );
 }
