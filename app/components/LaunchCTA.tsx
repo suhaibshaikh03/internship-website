@@ -27,7 +27,12 @@ export default function LaunchCTA() {
       style={{ height: "calc(95vh + 25px)", fontFamily: "var(--font-gsf-launch), sans-serif" }}
     >
       <style jsx global>{`
-        /* Mobile & Tablet Styles (<= 1024px) */
+        .launch-cta-model {
+          position: absolute;
+          inset: 0;
+          overflow: hidden;
+        }
+
         @media (max-width: 1024px) {
           .launch-cta-section {
             height: auto !important;
@@ -76,7 +81,6 @@ export default function LaunchCTA() {
           }
         }
 
-        /* Default Desktop/Laptop (1025px - 1280px) */
         @media (min-width: 1025px) and (max-width: 1280px) {
           .launch-cta-left {
             padding-left: 48px !important;
@@ -89,28 +93,32 @@ export default function LaunchCTA() {
           }
         }
 
-        /* Large Desktop / XL (1281px - 1535px) */
         @media (min-width: 1281px) and (max-width: 1535px) {
           .launch-cta-left {
             padding-left: 80px !important;
+          }
+          .launch-cta-model {
+            inset: 0 !important;
           }
           .launch-cta-iframe {
             transform: translateX(-60px) !important;
           }
         }
 
-        /* Ultra-wide / 2XL (>= 1536px) */
         @media (min-width: 1536px) {
           .launch-cta-left {
             padding-left: 106px !important;
+          }
+          .launch-cta-model {
+            inset: 0 !important;
           }
           .launch-cta-iframe {
             transform: translateX(370px) !important;
           }
         }
+
       `}</style>
 
-      {/* ── Left: heading + button ── */}
       <div
         className="absolute top-0 flex flex-col justify-center z-10 launch-cta-left"
         style={{ left: "-20px", height: "100%", paddingLeft: "106px", paddingRight: "32px" }}
@@ -119,8 +127,10 @@ export default function LaunchCTA() {
           className="text-white leading-[1.12] text-[3.5rem] whitespace-nowrap overflow-hidden launch-cta-heading"
           style={{ fontWeight: 700 }}
         >
-          Join, to launch $100k+<br />
-          Remote Tech Career in<br />
+          Join, to launch $100k+
+          <br />
+          Remote Tech Career in
+          <br />
           Web 3.0 &amp; Blockchain!
         </h2>
 
@@ -132,7 +142,6 @@ export default function LaunchCTA() {
         </button>
       </div>
 
-      {/* ── Right: Spline iframe ── */}
       <div className="launch-cta-model">
         <iframe
           src="https://my.spline.design/chatgptkeyboard-syV7Xqh56oD99RW4rH8kTk7Z/"
@@ -153,7 +162,6 @@ export default function LaunchCTA() {
         />
       </div>
 
-      {/* ── We're online widget ── */}
       <div
         className="absolute bottom-6 right-6 flex items-center gap-2 bg-[#1c1c1e] border border-white/10 rounded-xl px-4 py-2.5 shadow-xl"
         style={{ zIndex: 20 }}

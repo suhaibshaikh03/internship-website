@@ -122,16 +122,18 @@ function ExpertCard({
           isActive ? "opacity-100" : "opacity-0"
         }`}
       >
-        <div className="max-w-[280px] learn-expert-copy">
-          <h3 className="text-[34px] font-semibold leading-none tracking-[-0.02em] learn-expert-name">
-            {expert.name}
-          </h3>
-          <p className="mt-4 text-[16px] font-medium leading-none text-white/90 learn-expert-role">
-            {expert.role}
-          </p>
-        </div>
-        <div className="absolute bottom-[44px] right-[10px] learn-expert-logo-wrap">
-          <ExpertLogos />
+        <div className="learn-expert-footer">
+          <div className="max-w-[280px] learn-expert-copy">
+            <h3 className="text-[34px] font-semibold leading-none tracking-[-0.02em] learn-expert-name">
+              {expert.name}
+            </h3>
+            <p className="mt-4 text-[16px] font-medium leading-none text-white/90 learn-expert-role">
+              {expert.role}
+            </p>
+          </div>
+          <div className="learn-expert-logo-wrap">
+            <ExpertLogos />
+          </div>
         </div>
       </div>
     </article>
@@ -188,8 +190,13 @@ export default function LearnFromExperts() {
           .learn-expert-overlay {
             padding: 16px !important;
           }
+          .learn-expert-footer {
+            align-items: flex-end !important;
+            gap: 10px !important;
+          }
           .learn-expert-copy {
-            max-width: 145px !important;
+            max-width: 120px !important;
+            transform: translateY(-10px) !important;
           }
           .learn-expert-name {
             font-size: 18px !important;
@@ -201,8 +208,10 @@ export default function LearnFromExperts() {
             line-height: 1.15 !important;
           }
           .learn-expert-logo-wrap {
-            right: 8px !important;
-            bottom: 18px !important;
+            position: relative !important;
+            right: auto !important;
+            bottom: auto !important;
+            flex-shrink: 0 !important;
           }
           .learn-expert-logos {
             width: 92px !important;
@@ -218,6 +227,25 @@ export default function LearnFromExperts() {
           }
           .learn-expert-logos img:nth-of-type(3) {
             height: 18px !important;
+          }
+        }
+
+        @media (min-width: 1025px) {
+          .learn-expert-footer {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            gap: 20px;
+          }
+          .learn-expert-copy {
+            max-width: 220px;
+            transform: translateY(-18px);
+          }
+          .learn-expert-logo-wrap {
+            position: relative;
+            right: auto;
+            bottom: auto;
+            flex-shrink: 0;
           }
         }
       `}</style>
