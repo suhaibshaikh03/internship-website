@@ -1,0 +1,107 @@
+@import "tailwindcss";
+
+:root {
+  --background: #0a0a0a;
+  --foreground: #ededed;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-google-sans-flex);
+  --font-mono: var(--font-google-sans-flex);
+}
+
+html {
+  overflow-x: hidden;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-google-sans-flex), Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
+  width: 100%;
+}
+
+@layer utilities {
+  .program-carousel {
+    --program-slide-step: 100vw;
+  }
+
+  @media (min-width: 640px) {
+    .program-carousel {
+      --program-slide-step: calc(260px + 2rem);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .program-carousel {
+      --program-slide-step: calc(330px + 2rem);
+    }
+  }
+
+  /* 3D Perspective setup */
+  .perspective-container {
+    perspective: 2500px;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  /* Infinite scrolling animation */
+  .animate-carousel-flow {
+    display: flex;
+    animation: flow 30s linear infinite;
+  }
+
+  .hover\:pause-animation:hover {
+    animation-play-state: paused;
+  }
+
+  @keyframes flow {
+    0% { transform: translateX(0); }
+    /* Adjust this percentage based on the number of items */
+    100% { transform: translateX(-33.33%); }
+  }
+
+  /* 3D Card transforms to create the curve */
+  .card-3d {
+    transition: transform 0.6s cubic-bezier(0.25, 0.1, 0.25, 1);
+    transform-style: preserve-3d;
+  }
+
+  /* Rotates cards to create the "rounding" stadium arc */
+  .card-3d:nth-child(even) {
+    transform: rotateY(-25deg) scale(0.95);
+  }
+
+  .card-3d:nth-child(odd) {
+    transform: rotateY(25deg) scale(0.95);
+  }
+
+  /* Center card focus (applied via JS or layout if needed) */
+  .card-3d:hover {
+    transform: rotateY(0deg) scale(1.05) !important;
+    z-index: 10;
+  }
+
+  /* Fades edges so items don't snap into view */
+  .mask-fade-edges {
+    mask-image: linear-gradient(
+      to right, 
+      transparent, 
+      black 10%, 
+      black 90%, 
+      transparent
+    );
+  }
+}
+@layer utilities {
+  .sharp-image {
+    /* Prevents blur during CSS/Motion transforms */
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+    backface-visibility: hidden;
+    perspective: 1000px;
+  }
+}
