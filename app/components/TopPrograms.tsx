@@ -54,7 +54,7 @@ export default function TopPrograms() {
       setIndicatorPosition((currentPosition) => (currentPosition + 1) % indicatorButtons.length);
       setShouldAnimate(true);
       setActiveIndex((currentIndex) => currentIndex + 1);
-    }, 1000);
+    }, 4000);
 
     return () => window.clearInterval(intervalId);
   }, []);
