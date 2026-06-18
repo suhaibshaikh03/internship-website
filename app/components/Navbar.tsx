@@ -37,7 +37,7 @@ export default function Navbar() {
         <div className="w-full max-w-7xl grid grid-cols-3 items-center">
 
           {/* Left links */}
-          <div className="flex items-center space-x-10 lg:space-x-14 justify-end pr-[28px] lg:pr-[44px]">
+          <div className="flex items-center space-x-10 lg:space-x-14 justify-end pr-[23px] lg:pr-[39px]">
             <Link href="/" className="text-[#00A3FF] font-normal text-[15px] hover:opacity-80 transition-opacity tracking-wide">
               Home
             </Link>
@@ -55,7 +55,7 @@ export default function Navbar() {
 
           {/* Right links + Innovate logo */}
           <div className="flex items-center justify-between w-full">
-            <div className="flex items-center space-x-10 lg:space-x-14 pl-[28px] lg:pl-[44px]">
+            <div className="flex items-center space-x-10 lg:space-x-14 pl-[23px] lg:pl-[39px]">
               <Link href="/about" className="text-[#828282] font-normal text-[15px] hover:text-white transition-colors tracking-wide">
                 About
               </Link>
