@@ -82,7 +82,7 @@ function ImageTile({ src, alt }: Extract<GridTile, { type: "image" }>) {
 
 export default function IndustryStatsGrid() {
   return (
-    <section className={`${googleSansFlex.variable} w-full bg-black py-0`}>
+    <section className={`${googleSansFlex.variable} w-full bg-black pb-0 pt-16 sm:pt-20 lg:pt-24`}>
       <div className="mx-auto w-full px-0 sm:px-8 lg:px-[52px]">
         <div
           className="grid w-full grid-cols-2 grid-rows-4 gap-0 overflow-hidden [&>*]:h-full [&>*]:w-full"

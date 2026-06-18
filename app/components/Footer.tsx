@@ -212,7 +212,7 @@ export default function Footer() {
 
       {/* ── Copyright bar ── */}
       <div className="mx-4 sm:mx-8 md:mx-12 lg:mx-16 border-t border-white/[0.12]" />
-      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between px-4 sm:px-8 md:px-12 lg:px-16 pt-[10px] pb-10 sm:pb-20 gap-1 sm:gap-0">
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between px-4 sm:px-8 md:px-12 lg:px-16 pt-[10px] pb-5 sm:pb-10 gap-1 sm:gap-0">
         <p
           className="text-white/40 text-[11px] sm:text-[12px]"
           style={{ fontWeight: 400 }}

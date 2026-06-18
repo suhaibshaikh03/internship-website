@@ -7,7 +7,7 @@ export default function BrandGrid() {
     // Row 1
     { id: 1, src: "/11.svg", alt: "Ministry of IT", bg: "bg-[#121212]" },
     { id: 2, src: "/12.svg", alt: "Google", bg: "bg-[#1C1C1C]" },
-    { id: 3, src: "/13.png", alt: "AWS", bg: "bg-[#121212]" }, // Swapped to .png
+    { id: 3, src: "/aws234.png", alt: "AWS", bg: "bg-[#121212]" }, // Swapped to .png
     // Row 2
     { id: 4, src: "/14.png", alt: "Ignite", bg: "bg-[#1C1C1C]" },
     { id: 5, src: "/15.png", alt: "Microsoft", bg: "bg-[#121212]" },

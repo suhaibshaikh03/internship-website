@@ -62,13 +62,13 @@ export default function HeroConstellation() {
       `}</style>
 
       {/* Main Grid Graphic Frame Layout - Fixed max-h to prevent massive empty vertical space */}
-      <div className="relative w-full max-w-5xl aspect-[4/3] sm:aspect-[16/9] max-h-[560px] flex items-center justify-center">
+      <div className="relative w-full max-w-5xl aspect-[4/3] sm:aspect-[16/9] max-h-[680px] flex items-center justify-center">
         
         {/* =========================================================================
             CENTERPIECE BACKGROUND PROFILE LUNA GLOW
            ========================================================================= */}
         <div 
-          className={`relative w-[340px] h-[340px] sm:w-[400px] sm:h-[400px] md:w-[460px] md:h-[460px] z-10 flex items-center justify-center transition-all duration-1000 ease-out delay-100 ${
+          className={`relative w-[380px] h-[380px] sm:w-[480px] sm:h-[480px] md:w-[580px] md:h-[580px] z-10 flex items-center justify-center transition-all duration-1000 ease-out delay-100 ${
             isVisible ? "opacity-100 scale-100" : "opacity-0 scale-90"
           }`}
           style={{ containerType: "inline-size" }}
@@ -86,7 +86,7 @@ export default function HeroConstellation() {
               alt="Ecosystem Silhouette Frame"
               fill
               priority
-              sizes="(max-width: 768px) 340px, 460px"
+              sizes="(max-width: 768px) 380px, 580px"
               className="object-cover"
             />
           </div>
@@ -121,12 +121,12 @@ export default function HeroConstellation() {
             isVisible ? "opacity-100 scale-100" : "opacity-0 scale-75"
           }`}
         >
-          <div className="w-14 h-14 md:w-20 md:h-20 rounded-full overflow-hidden border border-zinc-700 shadow-2xl relative">
+          <div className="w-16 h-16 md:w-[100px] md:h-[100px] rounded-full overflow-hidden border border-zinc-700 shadow-2xl relative">
             <Image
               src="/nav1.png"
               alt="Team Member"
               fill
-              sizes="(max-width: 768px) 56px, 80px"
+              sizes="(max-width: 768px) 64px, 100px"
               className="object-cover"
             />
           </div>
@@ -138,7 +138,7 @@ export default function HeroConstellation() {
             isVisible ? "opacity-100 scale-100" : "opacity-0 scale-75"
           }`}
         >
-          <div className="w-14 h-14 md:w-[72px] md:h-[72px] rounded-full border border-white/30 shadow-2xl bg-white/10 backdrop-blur-md flex items-center justify-center relative">
+          <div className="w-16 h-16 md:w-[90px] md:h-[90px] rounded-full border border-white/30 shadow-2xl bg-white/10 backdrop-blur-md flex items-center justify-center relative">
             <div className="relative w-[55%] h-[55%]">
               <Image
                 src="/2.png"
@@ -157,12 +157,12 @@ export default function HeroConstellation() {
             isVisible ? "opacity-100 scale-100" : "opacity-0 scale-75"
           }`}
         >
-          <div className="w-14 h-14 md:w-[76px] md:h-[76px] rounded-full overflow-hidden border border-zinc-700 shadow-2xl relative filter brightness-105">
-            <Image 
-              src="/3.png" 
-              alt="Network Contributor" 
-              fill 
-              sizes="(max-width: 768px) 56px, 76px"
+          <div className="w-16 h-16 md:w-[95px] md:h-[95px] rounded-full overflow-hidden border border-zinc-700 shadow-2xl relative filter brightness-105">
+            <Image
+              src="/3.png"
+              alt="Network Contributor"
+              fill
+              sizes="(max-width: 768px) 64px, 95px"
               className="object-cover" 
             />
           </div>
@@ -187,27 +187,27 @@ export default function HeroConstellation() {
 
         {/* 8. Layered Nvidia Brand Module */}
         <div
-          className={`absolute top-[18%] right-[32%] z-30 float-anim-2 transition-all duration-1000 ease-out delay-350 ${
+          className={`absolute top-[22%] right-[23%] z-30 float-anim-2 transition-all duration-1000 ease-out delay-350 ${
             isVisible ? "opacity-100 scale-100" : "opacity-0 scale-75"
           }`}
         >
           <div
-            className="w-14 h-14 md:w-[70px] md:h-[70px] rounded-full border border-white/25 shadow-2xl flex items-center justify-center relative overflow-hidden"
+            className="w-14 h-14 md:w-[66px] md:h-[66px] rounded-full border border-white/15 shadow-2xl flex items-center justify-center relative overflow-hidden"
             style={{
-              background: "radial-gradient(circle at 30% 30%, rgba(56,180,255,0.22), rgba(8,10,18,0.82))",
+              background: "radial-gradient(circle at 38% 34%, rgba(52,58,70,0.96), rgba(20,22,29,0.96) 62%, rgba(11,12,17,0.98))",
               backdropFilter: "blur(14px)",
-              boxShadow: "0 0 22px rgba(56,180,255,0.18), inset 0 1px 0 rgba(255,255,255,0.18)",
+              boxShadow: "-12px 8px 18px rgba(46,155,255,0.38), inset 0 1px 0 rgba(255,255,255,0.16)",
             }}
           >
             {/* Blue-light reflection highlight */}
             <div
               className="absolute inset-0 rounded-full pointer-events-none"
               style={{
-                background: "radial-gradient(circle at 28% 25%, rgba(56,180,255,0.38), transparent 58%)",
+                background: "radial-gradient(circle at 13% 74%, rgba(54,151,255,0.95), rgba(43,132,255,0.28) 23%, transparent 45%)",
               }}
             />
-            <div className="relative z-10 w-[55%] h-[55%] flex items-center justify-center">
-              <Image src="/8b.png" alt="Nvidia Logo Asset" fill sizes="38px" className="object-contain" />
+            <div className="relative z-10 w-[45%] h-[45%] flex items-center justify-center">
+              <Image src="/8b.png" alt="Nvidia Logo Asset" fill sizes="30px" className="object-contain" />
             </div>
           </div>
         </div>
