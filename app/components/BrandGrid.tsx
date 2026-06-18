@@ -19,14 +19,19 @@ export default function BrandGrid() {
       {/* Removed max-w-7xl to let the grid fully break out and cover 100% horizontal viewport width.
         Internal grid borders separate the items smoothly without cropping edge-to-edge continuity.
       */}
-      <div className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 border-t border-zinc-900/60">
-        {brands.map((brand) => (
+      <div className="w-full grid grid-cols-2 md:grid-cols-3 border-t border-zinc-900/60">
+        {brands.map((brand, index) => {
+          const isMobileRowEnd = (index + 1) % 2 === 0;
+          const isDesktopRowEnd = (index + 1) % 3 === 0;
+
+          return (
           <div
             key={brand.id}
-            className={`${brand.bg} aspect-[16/6.5] min-h-[120px] sm:min-h-[140px] md:min-h-[175px] flex items-center justify-center p-6 sm:p-8 overflow-hidden transition-colors duration-300 hover:brightness-110 border-b border-zinc-900 sm:border-r`}
-            style={{
-              borderRightColor: brand.id % 3 === 0 ? 'transparent' : undefined
-            }}
+            className={`${brand.bg} aspect-[16/6.5] min-h-[120px] sm:min-h-[140px] md:min-h-[175px] flex items-center justify-center p-6 sm:p-8 overflow-hidden transition-colors duration-300 hover:brightness-110 border-b border-zinc-900 ${
+              isMobileRowEnd ? "border-r-0" : "border-r"
+            } ${
+              isDesktopRowEnd ? "md:border-r-0" : "md:border-r"
+            }`}
           >
             <div className="relative overflow-hidden w-full h-full max-w-[clamp(80px,18vw,195px)] max-h-[clamp(30px,6vw,60px)] flex items-center justify-center opacity-85 hover:opacity-100 transition-opacity duration-200">
               <Image
@@ -38,7 +43,8 @@ export default function BrandGrid() {
               />
             </div>
           </div>
-        ))}
+          );
+        })}
       </div>
     </section>
   );
