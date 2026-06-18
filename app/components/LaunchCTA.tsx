@@ -90,7 +90,7 @@ export default function LaunchCTA() {
           height: "100%",
           border: "none",
           zIndex: 1,
-          transform: "translateX(-230px)",
+          transform: "translateX(-30px)",
         }}
       />
 
