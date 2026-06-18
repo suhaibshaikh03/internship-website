@@ -53,6 +53,11 @@ export default function LaunchCTA() {
             display: none !important;
           }
         }
+        @media (min-width: 1536px) {
+          .launch-cta-iframe {
+            transform: translateX(70px) !important;
+          }
+        }
       `}</style>
 
       {/* ── Left: heading + button ── */}
