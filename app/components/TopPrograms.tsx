@@ -43,7 +43,7 @@ export default function TopPrograms() {
     },
   ];
 
-  const slides = [...programData, ...programData];
+  const slides = [...programData, ...programData, ...programData];
 
   React.useEffect(() => {
     const intervalId = window.setInterval(() => {
@@ -61,6 +61,17 @@ export default function TopPrograms() {
     }
   };
 
+  const indicatorButtons = [-2, -1, 0, 1, 2];
+
+  const moveSlides = (offset: number) => {
+    if (offset === 0) return;
+    setShouldAnimate(true);
+    setActiveIndex((currentIndex) => {
+      const nextIndex = currentIndex + offset;
+      return nextIndex < 0 ? programData.length - 1 : nextIndex;
+    });
+  };
+
   return (
     <section className={`${googleSansFlex.variable} w-full bg-black py-12 sm:py-16 md:py-20 overflow-hidden`}>
       <div className="text-center mb-8 sm:mb-10 md:mb-12 px-4">
@@ -72,14 +83,20 @@ export default function TopPrograms() {
         </p>
       </div>
 
-      <div className="program-carousel mx-auto w-full overflow-hidden pt-4 sm:px-0 sm:max-w-[844px] lg:max-w-[1054px]">
+      <div className="program-carousel mx-auto w-full overflow-hidden pt-4 sm:px-0 sm:max-w-[936px] lg:max-w-[1196px]">
         <div
-          className={`flex gap-0 sm:gap-8 ${shouldAnimate ? "transition-transform duration-500 ease-in-out" : ""}`}
+          className={`flex items-start gap-0 sm:gap-8 ${shouldAnimate ? "transition-transform duration-500 ease-in-out" : ""}`}
           style={{ transform: `translateX(calc(-${activeIndex} * var(--program-slide-step)))` }}
           onTransitionEnd={handleTransitionEnd}
         >
-          {slides.map((program, index) => (
-            <div key={`${program.id}-${index}`} className="flex-shrink-0">
+          {slides.map((program, index) => {
+            const isPeek = index - activeIndex === 3;
+
+            return (
+            <div
+              key={`${program.id}-${index}`}
+              className={`flex-shrink-0 ${isPeek ? "self-center" : ""}`}
+            >
               <ProgramCard 
                 mainImage={program.mainImage}
                 icon={program.icon}
@@ -87,10 +104,35 @@ export default function TopPrograms() {
                 title={program.title}
                 duration={program.duration}
                 bgColor={program.bgColor}
+                variant={isPeek ? "peek" : "default"}
               />
             </div>
-          ))}
+            );
+          })}
         </div>
+      </div>
+
+      <div className="mt-4 flex items-center justify-center gap-1.5">
+        {indicatorButtons.map((offset) => {
+          const isActive = offset === 0;
+          const opacityClass = isActive
+            ? "opacity-100"
+            : Math.abs(offset) === 1
+              ? "opacity-50"
+              : "opacity-30";
+
+          return (
+          <button
+            key={offset}
+            type="button"
+            aria-label={offset < 0 ? "Previous program slide" : offset > 0 ? "Next program slide" : "Current program slide"}
+            onClick={() => moveSlides(offset)}
+            className={`h-[6px] rounded-full bg-white transition-[opacity,width] duration-200 ${
+              isActive ? "w-[24px]" : "w-[12px]"
+            } ${opacityClass}`}
+          />
+          );
+        })}
       </div>
     </section>
   );

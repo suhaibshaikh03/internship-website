@@ -50,9 +50,9 @@ function StatTile({ value, label, bgColor }: Extract<GridTile, { type: "stat" }>
         willChange: "transform",
       }}
     >
-      {/* inset-0 fills the full cell; flex+justify-center centers text vertically */}
+      {/* Equal padding on every side keeps the stat block centered in the tile. */}
       <div
-        className="absolute inset-0 flex flex-col justify-center px-[10%]"
+        className="absolute inset-0 flex flex-col items-center justify-center p-[10%] text-center"
       >
         <p className="text-[clamp(16px,5.6vw,78px)] font-medium leading-[0.88] tracking-normal">
           {value}

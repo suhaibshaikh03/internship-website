@@ -14,14 +14,23 @@ interface ProgramCardProps {
   title: string;
   duration: string;
   bgColor: string;
+  variant?: "default" | "peek";
 }
 
-export function ProgramCard({ mainImage, icon, badge, title, duration, bgColor }: ProgramCardProps) {
+export function ProgramCard({ mainImage, icon, badge, title, duration, bgColor, variant = "default" }: ProgramCardProps) {
   const textColor = "text-black";
   const badgeBg = bgColor === "bg-[#FFC637]" ? "bg-white/85" : "bg-black/10";
+  const isPeek = variant === "peek";
 
   return (
-    <article className={`${googleSansFlex.variable} flex h-[480px] w-[100vw] flex-col overflow-hidden rounded-[10px] ${bgColor} shadow-2xl transition-transform duration-300 ease-out hover:-translate-y-3 sm:h-[440px] sm:w-[260px] lg:h-[540px] lg:w-[330px]`} style={{ fontFamily: "var(--font-google-sans-flex), sans-serif" }}>
+    <article
+      className={`${googleSansFlex.variable} flex w-[100vw] flex-col overflow-hidden rounded-[10px] ${bgColor} shadow-2xl transition-[height,opacity,transform] duration-300 ease-out hover:-translate-y-3 sm:w-[260px] lg:w-[330px] ${
+        isPeek
+          ? "h-[450px] opacity-45 sm:h-[410px] lg:h-[500px]"
+          : "h-[480px] opacity-100 sm:h-[440px] lg:h-[540px]"
+      }`}
+      style={{ fontFamily: "var(--font-google-sans-flex), sans-serif" }}
+    >
       {/* Header with badge and icon */}
       <div className="flex items-start justify-between px-4 pt-4 sm:px-5 sm:pt-5">
         <span className={`${badgeBg} text-black text-[9px] font-medium leading-none px-2 py-1 rounded-[3px]`}>
