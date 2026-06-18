@@ -27,35 +27,72 @@ export default function LaunchCTA() {
       style={{ height: "calc(95vh + 25px)", fontFamily: "var(--font-gsf-launch), sans-serif" }}
     >
       <style jsx global>{`
-        @media (max-width: 768px) {
+        /* Mobile & Tablet Styles (<= 1024px) */
+        @media (max-width: 1024px) {
           .launch-cta-section {
             height: auto !important;
-            display: flex;
-            flex-direction: column;
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: center !important;
+            justify-content: center !important;
+            padding: 80px 24px !important;
           }
           .launch-cta-left {
             position: relative !important;
             left: 0 !important;
             height: auto !important;
-            padding-left: 20px !important;
-            padding-right: 20px !important;
-            padding-top: 40px !important;
-            padding-bottom: 40px !important;
+            padding-left: 0 !important;
+            padding-right: 0 !important;
+            align-items: center !important;
+            text-align: center !important;
             z-index: 10;
           }
           .launch-cta-heading {
             white-space: normal !important;
+            text-align: center !important;
+            font-size: clamp(2rem, 6vw, 3rem) !important;
           }
           .launch-cta-button {
             width: 100% !important;
+            max-width: 320px !important;
+            margin-left: auto !important;
+            margin-right: auto !important;
           }
           .launch-cta-iframe {
             display: none !important;
           }
         }
-        @media (min-width: 1536px) {
+
+        /* Default Desktop/Laptop (1025px - 1280px) */
+        @media (min-width: 1025px) and (max-width: 1280px) {
+          .launch-cta-left {
+            padding-left: 48px !important;
+          }
+          .launch-cta-heading {
+            font-size: clamp(2.8rem, 4vw, 3.2rem) !important;
+          }
           .launch-cta-iframe {
-            transform: translateX(70px) !important;
+            transform: translateX(-520px) !important;
+          }
+        }
+
+        /* Large Desktop / XL (1281px - 1535px) */
+        @media (min-width: 1281px) and (max-width: 1535px) {
+          .launch-cta-left {
+            padding-left: 80px !important;
+          }
+          .launch-cta-iframe {
+            transform: translateX(-60px) !important;
+          }
+        }
+
+        /* Ultra-wide / 2XL (>= 1536px) */
+        @media (min-width: 1536px) {
+          .launch-cta-left {
+            padding-left: 106px !important;
+          }
+          .launch-cta-iframe {
+            transform: translateX(370px) !important;
           }
         }
       `}</style>
