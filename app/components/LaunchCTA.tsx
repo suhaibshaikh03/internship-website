@@ -42,6 +42,7 @@ export default function LaunchCTA() {
         .launch-cta-fallback-image {
           object-fit: cover;
           object-position: 94% 100%;
+          transform-origin: right bottom;
         }
 
         @media (max-width: 1050px) {
@@ -119,11 +120,17 @@ export default function LaunchCTA() {
         }
 
         @media (max-width: 560px) {
+          .launch-cta-button {
+            max-width: 240px !important;
+            padding: 10px 24px !important;
+            font-size: 18px !important;
+          }
           .launch-cta-model {
             min-height: clamp(260px, 82vw, 390px) !important;
           }
           .launch-cta-fallback-image {
             object-position: 96% 100%;
+            transform: scale(1.22);
           }
           .launch-cta-iframe {
             width: 240vw !important;
@@ -135,11 +142,17 @@ export default function LaunchCTA() {
         }
 
         @media (max-width: 420px) {
+          .launch-cta-button {
+            max-width: 220px !important;
+            padding: 9px 22px !important;
+            font-size: 17px !important;
+          }
           .launch-cta-model {
             min-height: clamp(230px, 88vw, 340px) !important;
           }
           .launch-cta-fallback-image {
             object-position: 98% 100%;
+            transform: scale(1.3);
           }
           .launch-cta-iframe {
             width: 250vw !important;
