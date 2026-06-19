@@ -122,6 +122,54 @@ export default function LaunchCTA() {
           }
         }
 
+        @media (min-width: 1025px) and (max-width: 1120px) {
+          .launch-cta-section {
+            height: auto !important;
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: center !important;
+            justify-content: center !important;
+            padding: 80px 24px 0 !important;
+          }
+          .launch-cta-left {
+            position: relative !important;
+            left: 0 !important;
+            height: auto !important;
+            padding-left: 0 !important;
+            padding-right: 0 !important;
+            align-items: center !important;
+            text-align: center !important;
+            z-index: 10;
+          }
+          .launch-cta-heading {
+            white-space: normal !important;
+            text-align: center !important;
+            font-size: clamp(2.2rem, 5vw, 3.1rem) !important;
+          }
+          .launch-cta-button {
+            width: 100% !important;
+            max-width: 320px !important;
+            margin-left: auto !important;
+            margin-right: auto !important;
+          }
+          .launch-cta-model {
+            position: relative !important;
+            width: 100% !important;
+            margin-top: 28px !important;
+            overflow: hidden !important;
+          }
+          .launch-cta-iframe {
+            display: block !important;
+            position: relative !important;
+            top: auto !important;
+            width: 175vw !important;
+            max-width: none !important;
+            height: 98.4375vw !important;
+            margin: 0 calc(100% - 175vw) !important;
+            transform: translateX(6vw) !important;
+          }
+        }
+
         @media (min-width: 1281px) and (max-width: 1535px) {
           .launch-cta-left {
             padding-left: 80px !important;
