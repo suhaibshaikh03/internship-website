@@ -20,16 +20,26 @@ const brands: Brand[] = [
   { id: 6, src: "/16.png", alt: "The Garage", bg: "bg-[#1C1C1C]", width: 70, height: 28 },
 ];
 
+function getMobileTileBg(index: number) {
+  const columns = 2;
+  const row = Math.floor(index / columns);
+  const column = index % columns;
+
+  return (row + column) % 2 === 0 ? "bg-[#121212]" : "bg-[#1C1C1C]";
+}
+
 function BrandTile({
   brand,
+  bgClassName,
   className,
 }: {
   brand: Brand;
+  bgClassName?: string;
   className?: string;
 }) {
   return (
     <div
-      className={`${brand.bg} flex items-center justify-center overflow-hidden border-zinc-900 transition-colors duration-300 hover:brightness-110 ${className ?? ""}`}
+      className={`${bgClassName ?? brand.bg} flex items-center justify-center overflow-hidden border-zinc-900 transition-colors duration-300 hover:brightness-110 ${className ?? ""}`}
     >
       <div className="flex h-full w-full items-center justify-center px-4">
         <Image
@@ -57,6 +67,7 @@ export default function BrandGrid() {
               <BrandTile
                 key={brand.id}
                 brand={brand}
+                bgClassName={getMobileTileBg(index)}
                 className={`h-[92px] border-b ${isRowEnd ? "border-r-0" : "border-r"}`}
               />
             );
