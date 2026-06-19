@@ -72,24 +72,41 @@ export default function LaunchCTA() {
             display: block !important;
             position: relative !important;
             top: auto !important;
-            width: 200vw !important;
+            width: 190vw !important;
             max-width: none !important;
-            height: 112.5vw !important;
-            margin: 0 calc(50% - 100vw) !important;
-            transform: translateX(-72vw) !important;
+            height: 106.875vw !important;
+            margin: 0 calc(100% - 190vw) !important;
+            transform: translateX(12vw) !important;
           }
         }
 
-        @media (max-width: 640px) {
-          .launch-cta-mobile-fallback {
-            height: 78vw;
-          }
+        @media (max-width: 768px) {
           .launch-cta-iframe {
-            width: 220vw !important;
+            width: 210vw !important;
             max-width: none !important;
-            height: 123.75vw !important;
-            margin: 0 calc(50% - 110vw) !important;
-            transform: translateX(-88vw) !important;
+            height: 118.125vw !important;
+            margin: 0 calc(100% - 210vw) !important;
+            transform: translateX(18vw) !important;
+          }
+        }
+
+        @media (max-width: 560px) {
+          .launch-cta-iframe {
+            width: 240vw !important;
+            max-width: none !important;
+            height: 135vw !important;
+            margin: 0 calc(100% - 240vw) !important;
+            transform: translateX(32vw) !important;
+          }
+        }
+
+        @media (max-width: 420px) {
+          .launch-cta-iframe {
+            width: 250vw !important;
+            max-width: none !important;
+            height: 140.625vw !important;
+            margin: 0 calc(100% - 250vw) !important;
+            transform: translateX(40vw) !important;
           }
         }
 
