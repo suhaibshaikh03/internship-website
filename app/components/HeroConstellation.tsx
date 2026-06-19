@@ -74,6 +74,28 @@ export default function HeroConstellation() {
         .hero-node-apple { top: 52%; left: calc(88% + 150px); }
         .hero-node-solana { top: 75%; left: calc(73% + 100px); }
 
+        @media (max-width: 1024px) {
+          .hero-node-man { top: 13%; left: 14%; }
+          .hero-node-tesla { top: 28%; left: 10%; }
+          .hero-node-woman-left { top: 76%; left: 15%; }
+          .hero-node-google { top: 88%; left: 31%; }
+          .hero-node-nvidia { top: 22%; left: 72%; }
+          .hero-node-woman-right { top: 12%; left: 86%; }
+          .hero-node-apple { top: 50%; left: 88%; }
+          .hero-node-solana { top: 82%; left: 76%; }
+        }
+
+        @media (max-width: 820px) {
+          .hero-node-man { top: 11%; left: 16%; }
+          .hero-node-tesla { top: 27%; left: 11%; }
+          .hero-node-woman-left { top: 78%; left: 16%; }
+          .hero-node-google { top: 90%; left: 33%; }
+          .hero-node-nvidia { top: 21%; left: 74%; }
+          .hero-node-woman-right { top: 10%; left: 85%; }
+          .hero-node-apple { top: 49%; left: 87%; }
+          .hero-node-solana { top: 86%; left: 77%; }
+        }
+
         @media (max-width: 639px) {
           .hero-node-man { top: 8%; left: 23%; }
           .hero-node-tesla { top: 25%; left: 12%; }
