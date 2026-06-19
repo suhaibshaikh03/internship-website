@@ -21,6 +21,12 @@ const googleSansFlex = localFont({
 });
 
 export default function LaunchCTA() {
+  const [isClient, setIsClient] = React.useState(false);
+
+  React.useEffect(() => {
+    setIsClient(true);
+  }, []);
+
   return (
     <section
       className={`${googleSansFlex.variable} relative w-full bg-black overflow-x-hidden launch-cta-section`}
@@ -143,23 +149,41 @@ export default function LaunchCTA() {
       </div>
 
       <div className="launch-cta-model">
-        <iframe
-          src="https://my.spline.design/chatgptkeyboard-syV7Xqh56oD99RW4rH8kTk7Z/"
-          title="3D Keyboard"
-          allow="autoplay; fullscreen"
-          loading="eager"
-          className="launch-cta-iframe"
-          style={{
-            position: "relative",
-            top: 0,
-            width: "calc(100% + 230px)",
-            height: "100%",
-            minHeight: "520px",
-            border: "none",
-            zIndex: 1,
-            transform: "translateX(-30px)",
-          }}
-        />
+        {isClient ? (
+          <iframe
+            src="https://my.spline.design/chatgptkeyboard-syV7Xqh56oD99RW4rH8kTk7Z/"
+            title="3D Keyboard"
+            allow="autoplay; fullscreen"
+            loading="eager"
+            className="launch-cta-iframe"
+            style={{
+              position: "relative",
+              top: 0,
+              width: "calc(100% + 230px)",
+              height: "100%",
+              minHeight: "520px",
+              border: "none",
+              zIndex: 1,
+              transform: "translateX(-30px)",
+            }}
+          />
+        ) : (
+          <div
+            aria-hidden
+            className="launch-cta-iframe"
+            style={{
+              position: "relative",
+              top: 0,
+              width: "calc(100% + 230px)",
+              height: "100%",
+              minHeight: "520px",
+              zIndex: 1,
+              transform: "translateX(-30px)",
+              background:
+                "radial-gradient(circle at 50% 30%, rgba(66,197,245,0.22), rgba(0,0,0,0) 48%), linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0))",
+            }}
+          />
+        )}
       </div>
 
       <div

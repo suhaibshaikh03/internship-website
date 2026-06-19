@@ -251,7 +251,7 @@ export default function LearnFromExperts() {
       `}</style>
 
       <div
-        className="mx-auto flex flex-col lg:flex-row min-h-auto lg:min-h-[628px] max-w-full lg:max-w-[1248px] overflow-hidden rounded-[28px] bg-[#082F43] px-6 py-11 sm:px-8 lg:px-14 gap-8 lg:gap-0 learn-experts-shell"
+        className="mx-auto flex w-full flex-col overflow-hidden rounded-[28px] bg-[#082F43] px-6 py-11 sm:px-8 lg:min-h-[628px] lg:flex-row lg:px-14 lg:gap-0 2xl:px-16 learn-experts-shell"
         style={{ fontFamily: "var(--font-google-sans-flex-experts), sans-serif" }}
       >
         <div className="relative z-30 flex w-full lg:w-[280px] flex-shrink-0 flex-col justify-between text-white learn-experts-sidebar">
