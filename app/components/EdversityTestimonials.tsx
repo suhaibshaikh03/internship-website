@@ -203,7 +203,7 @@ function FloatingTestimonialCard({ testimonial, scrollYProgress }: FloatingTesti
 
   return (
     <motion.div
-      className={`absolute z-30 hidden pointer-events-none md:block ${testimonial.className}`}
+      className={`absolute z-30 hidden pointer-events-none md:block 2xl:scale-[1.5] ${testimonial.className}`}
       style={{ opacity, x, y, willChange: "transform, opacity" }}
     >
       <TestimonialGlassCard testimonial={testimonial} />

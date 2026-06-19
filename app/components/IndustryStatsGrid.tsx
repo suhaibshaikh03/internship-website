@@ -39,7 +39,7 @@ const tiles: GridTile[] = [
 function StatTile({ value, label, bgColor }: Extract<GridTile, { type: "stat" }>) {
   return (
     <div
-      className={`relative ${bgColor} text-white`}
+      className={`relative overflow-hidden ${bgColor} text-white`}
       style={{
         height: "100%",
         width: "100%",
@@ -50,7 +50,7 @@ function StatTile({ value, label, bgColor }: Extract<GridTile, { type: "stat" }>
     >
       {/* Equal padding on every side keeps the stat block centered in the tile. */}
       <div
-        className="absolute inset-0 flex flex-col items-center justify-center p-[10%] text-center"
+        className="absolute inset-[-1px] flex flex-col items-center justify-center p-[10%] text-center"
       >
         <p className="text-[clamp(16px,5.6vw,78px)] font-medium leading-[0.88] tracking-normal">
           {value}
@@ -71,7 +71,7 @@ function ImageTile({ src, alt }: Extract<GridTile, { type: "image" }>) {
         alt={alt}
         fill
         sizes="(min-width: 768px) calc((100vw - 104px) / 2), calc((100vw - 32px) / 2)"
-        className="object-cover"
+        className="scale-[1.02] object-cover"
         quality={100}
       />
     </div>
