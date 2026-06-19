@@ -46,8 +46,6 @@ function StatTile({ value, label, bgColor }: Extract<GridTile, { type: "stat" }>
         minHeight: 0,
         fontFamily: "var(--font-google-sans-flex-grid), var(--font-google-sans-flex), sans-serif",
         fontVariationSettings: '"wght" 500, "opsz" 36',
-        transform: "translateZ(0)",
-        willChange: "transform",
       }}
     >
       {/* Equal padding on every side keeps the stat block centered in the tile. */}
@@ -67,7 +65,7 @@ function StatTile({ value, label, bgColor }: Extract<GridTile, { type: "stat" }>
 
 function ImageTile({ src, alt }: Extract<GridTile, { type: "image" }>) {
   return (
-    <div className="relative overflow-hidden" style={{ transform: "translateZ(0)", willChange: "transform" }}>
+    <div className="relative overflow-hidden">
       <Image
         src={src}
         alt={alt}
