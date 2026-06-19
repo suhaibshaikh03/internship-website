@@ -1,6 +1,5 @@
 "use client";
 
-import React from "react";
 import Image from "next/image";
 import localFont from "next/font/local";
 
@@ -21,12 +20,6 @@ const googleSansFlex = localFont({
 });
 
 export default function LaunchCTA() {
-  const [isClient, setIsClient] = React.useState(false);
-
-  React.useEffect(() => {
-    setIsClient(true);
-  }, []);
-
   return (
     <section
       className={`${googleSansFlex.variable} relative w-full bg-black overflow-x-hidden launch-cta-section`}
@@ -79,11 +72,24 @@ export default function LaunchCTA() {
             display: block !important;
             position: relative !important;
             top: auto !important;
-            width: 100vw !important;
-            max-width: 100vw !important;
-            height: clamp(360px, 62vh, 520px) !important;
-            margin: 0 calc(50% - 50vw) !important;
-            transform: none !important;
+            width: 200vw !important;
+            max-width: none !important;
+            height: 112.5vw !important;
+            margin: 0 calc(50% - 100vw) !important;
+            transform: translateX(-72vw) !important;
+          }
+        }
+
+        @media (max-width: 640px) {
+          .launch-cta-mobile-fallback {
+            height: 78vw;
+          }
+          .launch-cta-iframe {
+            width: 220vw !important;
+            max-width: none !important;
+            height: 123.75vw !important;
+            margin: 0 calc(50% - 110vw) !important;
+            transform: translateX(-88vw) !important;
           }
         }
 
@@ -95,7 +101,7 @@ export default function LaunchCTA() {
             font-size: clamp(2.8rem, 4vw, 3.2rem) !important;
           }
           .launch-cta-iframe {
-            transform: translateX(-520px) !important;
+            transform: translateX(-120px) !important;
           }
         }
 
@@ -107,7 +113,7 @@ export default function LaunchCTA() {
             inset: 0 !important;
           }
           .launch-cta-iframe {
-            transform: translateX(-60px) !important;
+            transform: translateX(10px) !important;
           }
         }
 
@@ -119,7 +125,7 @@ export default function LaunchCTA() {
             inset: 0 !important;
           }
           .launch-cta-iframe {
-            transform: translateX(370px) !important;
+            transform: translateX(460px) !important;
           }
         }
 
@@ -149,41 +155,23 @@ export default function LaunchCTA() {
       </div>
 
       <div className="launch-cta-model">
-        {isClient ? (
-          <iframe
-            src="https://my.spline.design/chatgptkeyboard-syV7Xqh56oD99RW4rH8kTk7Z/"
-            title="3D Keyboard"
-            allow="autoplay; fullscreen"
-            loading="eager"
-            className="launch-cta-iframe"
-            style={{
-              position: "relative",
-              top: 0,
-              width: "calc(100% + 230px)",
-              height: "100%",
-              minHeight: "520px",
-              border: "none",
-              zIndex: 1,
-              transform: "translateX(-30px)",
-            }}
-          />
-        ) : (
-          <div
-            aria-hidden
-            className="launch-cta-iframe"
-            style={{
-              position: "relative",
-              top: 0,
-              width: "calc(100% + 230px)",
-              height: "100%",
-              minHeight: "520px",
-              zIndex: 1,
-              transform: "translateX(-30px)",
-              background:
-                "radial-gradient(circle at 50% 30%, rgba(66,197,245,0.22), rgba(0,0,0,0) 48%), linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0))",
-            }}
-          />
-        )}
+        <iframe
+          src="https://my.spline.design/chatgptkeyboard-syV7Xqh56oD99RW4rH8kTk7Z/"
+          title="3D Keyboard"
+          allow="autoplay; fullscreen"
+          loading="eager"
+          className="launch-cta-iframe"
+          style={{
+            position: "relative",
+            top: 0,
+            width: "calc(100% + 230px)",
+            height: "100%",
+            minHeight: "520px",
+            border: "none",
+            zIndex: 1,
+            transform: "translateX(-30px)",
+          }}
+        />
       </div>
 
       <div
