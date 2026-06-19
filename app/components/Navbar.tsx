@@ -49,7 +49,7 @@ export default function Navbar() {
           {/* Center logo */}
           <div className="flex justify-center">
             <Link href="/">
-              <Image src="/Edversity.png" alt="Edversity Logo" width={160} height={40} priority style={{ width: "auto", height: "auto" }} className="object-contain" />
+              <Image src="/Edversity.png" alt="Edversity Logo" width={160} height={40} priority style={{ height: "auto" }} className="object-contain" />
             </Link>
           </div>
 
@@ -64,7 +64,7 @@ export default function Navbar() {
               </Link>
             </div>
             <div className="flex-shrink-0">
-              <Image src="/Vector.svg" alt="Innovate 4.0" width={105} height={26} priority style={{ width: "auto", height: "auto" }} className="object-contain" />
+              <Image src="/Vector.svg" alt="Innovate 4.0" width={105} height={26} priority style={{ height: "auto" }} className="object-contain" />
             </div>
           </div>
         </div>
@@ -74,7 +74,7 @@ export default function Navbar() {
       <div className="flex md:hidden items-center justify-between px-5 h-20">
         {/* Edversity logo */}
         <Link href="/">
-          <Image src="/Edversity.png" alt="Edversity Logo" width={120} height={30} priority style={{ width: "auto", height: "auto" }} className="object-contain" />
+          <Image src="/Edversity.png" alt="Edversity Logo" width={120} height={30} priority style={{ height: "auto" }} className="object-contain" />
         </Link>
 
         {/* Hamburger button */}
@@ -108,7 +108,7 @@ export default function Navbar() {
 
           {/* Innovate 4.0 logo at bottom */}
           <div className="mt-6 flex w-[96px] justify-center border-t border-white/10 px-2 pt-5">
-            <Image src="/Vector.svg" alt="Innovate 4.0" width={110} height={28} style={{ width: "auto", height: "auto" }} className="object-contain" />
+            <Image src="/Vector.svg" alt="Innovate 4.0" width={110} height={28} style={{ height: "auto" }} className="object-contain" />
           </div>
         </div>
       )}
