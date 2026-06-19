@@ -79,7 +79,7 @@ const testimonials: FloatingTestimonial[] = [
     author: "Abdullah Rizwan",
     role: "Edversity's student",
     variant: "wide",
-    className: "right-[calc(1.5%-6px)] top-[18%] w-[28vw] max-w-[380px]",
+    className: "right-[calc(1.5%-6px)] top-[18%] w-[28vw] max-w-[380px] 2xl:right-[calc(1.5%+24px)]",
     mobileClassName: "right-[2%] top-[49%] w-[44vw]",
     range: [0.46, 0.57],
     revealFrom: { x: 46, y: 20 },

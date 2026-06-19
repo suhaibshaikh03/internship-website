@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import localFont from "next/font/local";
+import splineFallback from "../../public/spline123.png";
 
 const googleSansFlex = localFont({
   src: [
@@ -30,6 +31,26 @@ export default function LaunchCTA() {
           position: absolute;
           inset: 0;
           overflow: hidden;
+        }
+
+        .launch-cta-fallback {
+          display: none;
+          position: absolute;
+          inset: 0;
+        }
+
+        .launch-cta-fallback-image {
+          object-fit: cover;
+          object-position: 94% 100%;
+        }
+
+        @media (max-width: 1050px) {
+          .launch-cta-fallback {
+            display: block !important;
+          }
+          .launch-cta-iframe {
+            display: none !important;
+          }
         }
 
         @media (max-width: 1024px) {
@@ -67,9 +88,13 @@ export default function LaunchCTA() {
             width: 100% !important;
             margin-top: 28px !important;
             overflow: hidden !important;
+            min-height: clamp(330px, 62vw, 520px) !important;
+          }
+          .launch-cta-fallback {
+            position: absolute !important;
+            inset: 0 !important;
           }
           .launch-cta-iframe {
-            display: block !important;
             position: relative !important;
             top: auto !important;
             width: 190vw !important;
@@ -81,6 +106,9 @@ export default function LaunchCTA() {
         }
 
         @media (max-width: 768px) {
+          .launch-cta-model {
+            min-height: clamp(300px, 72vw, 460px) !important;
+          }
           .launch-cta-iframe {
             width: 210vw !important;
             max-width: none !important;
@@ -91,6 +119,12 @@ export default function LaunchCTA() {
         }
 
         @media (max-width: 560px) {
+          .launch-cta-model {
+            min-height: clamp(260px, 82vw, 390px) !important;
+          }
+          .launch-cta-fallback-image {
+            object-position: 96% 100%;
+          }
           .launch-cta-iframe {
             width: 240vw !important;
             max-width: none !important;
@@ -101,6 +135,12 @@ export default function LaunchCTA() {
         }
 
         @media (max-width: 420px) {
+          .launch-cta-model {
+            min-height: clamp(230px, 88vw, 340px) !important;
+          }
+          .launch-cta-fallback-image {
+            object-position: 98% 100%;
+          }
           .launch-cta-iframe {
             width: 250vw !important;
             max-width: none !important;
@@ -220,6 +260,16 @@ export default function LaunchCTA() {
       </div>
 
       <div className="launch-cta-model">
+        <div className="launch-cta-fallback">
+          <Image
+            src={splineFallback}
+            alt="Blue rocket key on a keyboard"
+            fill
+            priority
+            sizes="(max-width: 420px) 100vw, (max-width: 768px) 92vw, (max-width: 1050px) 100vw, 0px"
+            className="launch-cta-fallback-image"
+          />
+        </div>
         <iframe
           src="https://my.spline.design/chatgptkeyboard-syV7Xqh56oD99RW4rH8kTk7Z/"
           title="3D Keyboard"
